@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>FamilyConnect</title>
+   <style>
+     body {
+       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       min-height: 100vh;
+       margin: 0;
+       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+       color: white;
+       text-align: center;
+     }
+     .container { padding: 20px; }
+     h1 { margin-bottom: 10px; }
+     p { opacity: 0.9; }
+     a { color: white; }
+   </style>
+   <script>
+     (function() {
+       // Get hash fragment (Supabase puts tokens here)
+       var hash = window.location.hash;
+
+       if (hash && hash.length > 1) {
+         // Redirect to app with auth tokens
+         window.location.href = 'familyconnect://auth-callback' + hash;
+       }
+     })();
+   </script>
+ </head>
+ <body>
+   <div class="container">
+     <h1>Email Confirmed!</h1>
+     <p>You can now open FamilyConnect on your device.</p>
+     <p><a href="familyconnect://auth-callback">Open FamilyConnect</a></p>
+   </div>
+ </body>
+ </html>
